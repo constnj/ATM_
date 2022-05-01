@@ -16,6 +16,10 @@ public class Bank {
         this.accounts.add(account);
     }
 
+    public void add_new_client(Client client) {
+        this.clients.add(client);
+    }
+
     public long create_new_account_Id() {
 
         long new_account_id;
@@ -60,13 +64,15 @@ public class Bank {
         return new_client_id;
     }
 
-    public Client authorization(long entered_id, int password) {
+    public Client authorization(String client_name, int password) {
         for (Client c : this.clients) {
-            if (c.get_the_client_id() == entered_id && c.get_the_password() == password) {
+            if (c.get_the_client_name() == client_name && c.get_the_password() == password) {
                 return c;
             }
         }
         return null;
     }
+
+
 
 }
